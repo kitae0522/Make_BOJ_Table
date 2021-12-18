@@ -42,6 +42,13 @@ class Make_BOJ_Table:
             except KeyError:
                 print(f'❎ 파일은 있지만, 해결하지 않은 문제가 있습니다. : {item}')
 
+    def render_markdown_header(self) -> str:
+        return (
+            f'<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj={self.boj_name}">'
+            f'<img src="http://mazandi.herokuapp.com/api?handle={self.boj_name}&theme=warm">'
+            f'<h1 style="font-weight:600">{self.boj_name}님이 푼 문제</h1>\n\n'
+        )
+    
     def render_table_header(self) -> str:
         return (
             '|No|Title|Solution Link|Problem Link|\n'
@@ -65,15 +72,12 @@ class Make_BOJ_Table:
         self.crawl_data()
         self.check_file()
         with open(f'{os.getcwd()}/BOJ.md', 'w', encoding='UTF8') as file:
+            file.write(self.render_markdown_header())
             file.write(self.render_table_header())
             file.write(self.render_table_item())
         print(f'✅ 업데이트 완료.')
 
 if __name__ == "__main__":
-    MBT = Make_BOJ_Table({
-        "git_name": "kitae0522",
-        "git_email": "kitae0522@naver.com",
-        "git_repo": "Make_BOJ_Table",
-        "boj_name": "kitae0522"
-    })
-    MBT.run()
+    with open('./init.json') as init:
+        MBT = Make_BOJ_Table(json.load(init))
+        MBT.run()

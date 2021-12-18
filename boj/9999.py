@@ -1,1 +1,0 @@
-print("Hymn To Love")
