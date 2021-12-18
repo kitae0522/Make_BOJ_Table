@@ -1,6 +1,6 @@
 {
-    "git_name": "", /* 깃허브 계정 아이디 */
-    "git_email": "", /* 깃허브 계정 이메일*/
-    "git_repo": "", /* 현재 깃허브 레포지토리 이름 */
-    "boj_name": "" /* 백준 아이디 */
+    "git_name": "",
+    "git_email": "",
+    "git_repo": "",
+    "boj_name": ""
 }
