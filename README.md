@@ -20,7 +20,6 @@ $ git clone https://github.com/kitae0522/Make_BOJ_Table.git
 ```json
 {
     "git_name": "", /* 깃허브 계정 아이디 */
-    "git_email": "", /* 깃허브 계정 이메일*/
     "git_repo": "", /* 해결한 문제 파일이 위치한 깃허브 레포지토리 이름 */
     "boj_name": "" /* 백준 아이디 */
 }
