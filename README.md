@@ -38,12 +38,12 @@ $ git clone https://github.com/kitae0522/Make_BOJ_Table.git
     $ python3 ./run.py -s p_id -d desc
     $ python3 ./run.py --sort p_id --direction desc
     ```
-    - default (문제 번호를 기준으로 오름차순 정렬)
+    - option1 (문제 번호를 기준으로 오름차순 정렬)
     ```
     $ python3 ./run.py -s p_id -d asc
     $ python3 ./run.py --sort p_id --direction asc
     ```
-    - default (문제 번호를 기준으로 내림차순 정렬)
+    - option2 (문제 티어를 기준으로 내림차순 정렬)
     ```
     $ python3 ./run.py -s tier -d desc
     $ python3 ./run.py --sort tier --direction desc
