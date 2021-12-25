@@ -92,7 +92,7 @@ class Make_BOJ_Table:
         sort_option, direction_option = option
         return_string = ''
         write_by = dict(sorted(self.user_db.items(), reverse=direction_option, key=lambda x: x[1][0])) if sort_option == 'tier' else \
-            self.user_db
+            dict(sorted(self.user_db.items(), reverse=direction_option))
 
         for content in write_by:
             try:

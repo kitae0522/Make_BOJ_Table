@@ -13,10 +13,13 @@
 > ❗ 설치되어 있는 Python이 3.7 버전 이상인지 확인하세요.
 
 1. 이 레포지토리를 Clone하세요.
+
 ```shell
 $ git clone https://github.com/kitae0522/Make_BOJ_Table.git
 ```
+
 2. `init.json` 파일을 주석을 참고하여 작성합니다.
+
 ```json
 {
     "git_name": "", /* 깃허브 계정 아이디 */
@@ -24,9 +27,30 @@ $ git clone https://github.com/kitae0522/Make_BOJ_Table.git
     "boj_name": "" /* 백준 아이디 */
 }
 ```
+
 3. `boj` 디렉터리에 푼 문제 파일을 `(문제 번호).(확장자 명)` 꼴로 작성합니다. (ex. `boj/1000.cpp`)
-4. `run.py` 파일을 실행시킵니다.
-```shell
-$ python3 ./run.py
-```
+
+4. `run.py` 파일을 필요한 옵션에 따라 실행시킵니다.
+
+    - default (문제 번호를 기준으로 내림차순 정렬)
+    ```shell
+    $ python3 ./run.py
+    $ python3 ./run.py -s p_id -d desc
+    $ python3 ./run.py --sort p_id --direction desc
+    ```
+    - default (문제 번호를 기준으로 오름차순 정렬)
+    ```
+    $ python3 ./run.py -s p_id -d asc
+    $ python3 ./run.py --sort p_id --direction asc
+    ```
+    - default (문제 번호를 기준으로 내림차순 정렬)
+    ```
+    $ python3 ./run.py -s tier -d desc
+    $ python3 ./run.py --sort tier --direction desc
+    ```
+    - option3 (문제 티어를 기준으로 오름차순 정렬)
+    ```
+    $ python3 ./run.py -s tier -d asc
+    $ python3 ./run.py --sort tier --direction asc
+    ```
 5. 생성된 `BOJ.md` 파일 명을 `README.md` 파일로 변경 후 커밋 & 푸시합니다.
