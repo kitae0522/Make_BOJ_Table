@@ -34,7 +34,7 @@ class Make_BOJ_Table:
         def return_tier_level(p_level: int) -> str:
             if p_level == 0:
                 return ''
-            return str(6 - (p_level % 5 if p_level % 5 else 1))
+            return str(6 - (p_level % 5 if p_level % 5 else 5))
 
         solved_req: dict = json.loads(
             req.get(req_url_handler(self.boj_name)).text)
