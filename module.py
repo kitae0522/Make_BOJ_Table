@@ -15,26 +15,9 @@ class Make_BOJ_Table:
         def req_url_handler(u_id: str, page_idx: int = 1) -> str:
             return f'https://solved.ac/api/v3/search/problem?query=solved_by:{u_id}&page={page_idx}'
 
-        def return_tier(p_level: int) -> str:
-            if p_level == 0:
-                return 'Not ratable'
-            if p_level < 6 and p_level >= 1:
-                return 'Bronze'
-            if p_level < 11 and p_level >= 6:
-                return 'Silver'
-            if p_level < 16 and p_level >= 11:
-                return 'Gold'
-            if p_level < 21 and p_level >= 16:
-                return 'Platinum'
-            if p_level < 26 and p_level >= 21:
-                return 'Diamond'
-            if p_level < 31 and p_level >= 26:
-                return 'Ruby'
 
-        def return_tier_level(p_level: int) -> str:
-            if p_level == 0:
-                return ''
-            return str(6 - (p_level % 5 if p_level % 5 else 5))
+        def return_problem_img(p_level: int) -> str:
+            return f'<img height="25px" width="25px" src="https://static.solved.ac/tier_small/{p_level}.svg"/>'
 
         solved_req: dict = json.loads(
             req.get(req_url_handler(self.boj_name)).text)
@@ -42,8 +25,7 @@ class Make_BOJ_Table:
             content['problemId']: [
                 content['level'],
                 content['titleKo'],
-                " ".join([return_tier(content['level']),
-                          return_tier_level(content['level'])])
+                return_problem_img(content['level'])
             ] for content in solved_req['items']
         }
 
@@ -58,8 +40,7 @@ class Make_BOJ_Table:
                     content['problemId']: [
                         content['level'],
                         content['titleKo'],
-                        " ".join([return_tier(content['level']),
-                                  return_tier_level(content['level'])])
+                        return_problem_img(content['level'])
                     ] for content in next_req['items']
                 }
                 self.user_db.update(next_req_dict)
