@@ -12,7 +12,7 @@ def get_arguments():
 
     sort_option: str = parser.parse_args().sort[0]
     direction_option: str = parser.parse_args().direction[0]
-    return [sort_option, True if direction_option == 'asc' else False]
+    return [sort_option, False if direction_option == 'asc' else True]
 
 
 if __name__ == "__main__":
